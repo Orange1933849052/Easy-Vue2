@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue简单计算器</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        .wrap{
+            width: 300px;
+            margin: 50px auto;
+            /* position: relative; */
+            height: 200px;
+            background:linear-gradient(45deg, #ff9700, #ed1c24);;
+            border-radius: 2em;
+        }
+        .btn{
+            display: block;
+            margin: 10px auto 0 ;
+            width: 230px; height: 30px;
+            background-image:linear-gradient(45deg, #ec008c, #6739b6);
+            outline:none;
+            border-radius: 2em;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div class="wrap" id="app">
+        <h1 style="text-align: center;">简单计算器</h1>
+        数值A：<input type="text" v-model='a'>
+        <br>
+        数值B：<input type="text" v-model='b'>
+        <br>
+        <button  class="btn" v-on:click='handle'>计算</button>
+        <br>
+        计算结果：<span v-text='result'></span>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                a:'',
+                b:'',
+                result:''
+            },
+            methods:{
+                handle:function(){
+                    this.result = parseInt(this.a) + parseInt(this.b);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
